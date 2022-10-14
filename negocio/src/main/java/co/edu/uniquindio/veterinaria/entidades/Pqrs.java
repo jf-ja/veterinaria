@@ -27,6 +27,7 @@ public class Pqrs implements Serializable {
 
     private LocalDateTime fecha;
 
+    @ToString.Exclude
     @ManyToOne
     private Cliente cliente;
 

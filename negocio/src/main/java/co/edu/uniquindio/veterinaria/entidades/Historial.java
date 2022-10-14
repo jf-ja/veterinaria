@@ -21,9 +21,11 @@ public class Historial implements Serializable {
     @EqualsAndHashCode.Include
     private Integer codigo;
 
+    @ToString.Exclude
     @OneToOne
     private Mascota mascota;
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "historial")
     private List<Consulta> consultas;
 

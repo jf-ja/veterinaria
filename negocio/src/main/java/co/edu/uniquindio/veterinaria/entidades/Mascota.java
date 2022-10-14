@@ -28,9 +28,11 @@ public class Mascota implements Serializable {
 
     private String raza;
 
+    @ToString.Exclude
     @ManyToOne
     private Cliente cliente ;
 
+    @ToString.Exclude
     @OneToOne(mappedBy = "mascota")
     private Historial historial;
 

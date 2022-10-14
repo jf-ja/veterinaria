@@ -26,12 +26,15 @@ public class Compra implements Serializable {
 
     private Double total;
 
+    @ToString.Exclude
     @ManyToMany
     private List<Producto> productos;
 
+    @ToString.Exclude
     @ManyToOne
     private Cliente cliente;
 
+    @ToString.Exclude
     @ManyToOne
     private Empleado empleado;
 

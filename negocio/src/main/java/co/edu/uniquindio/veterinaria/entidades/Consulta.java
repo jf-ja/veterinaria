@@ -29,9 +29,11 @@ public class Consulta implements Serializable {
 
     private MetodoPago metodoPago;
 
+    @ToString.Exclude
     @ManyToOne
     private Historial historial;
 
+    @ToString.Exclude
     @ManyToOne
     private Empleado empleado;
 

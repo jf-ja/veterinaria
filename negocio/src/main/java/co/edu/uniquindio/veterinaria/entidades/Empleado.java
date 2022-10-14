@@ -19,9 +19,11 @@ public class Empleado extends Persona implements Serializable {
     @ElementCollection
     private List<String> telefonos;
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "empleado")
     private List<Consulta> consultas;
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "empleado")
     private List<Compra> compras;
 

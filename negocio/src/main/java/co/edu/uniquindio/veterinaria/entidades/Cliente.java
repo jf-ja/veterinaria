@@ -18,13 +18,15 @@ public class Cliente extends Persona implements Serializable {
 
     @ElementCollection
     private List<String> telefonos;
-
+    @ToString.Exclude
     @OneToMany(mappedBy = "cliente")
     private List<Pqrs> pqrsList ;
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "cliente")
     private List<Mascota> mascotas ;
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "cliente")
     private List<Compra> compras;
 
