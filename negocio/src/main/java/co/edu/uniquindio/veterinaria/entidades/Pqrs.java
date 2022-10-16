@@ -25,13 +25,13 @@ public class Pqrs implements Serializable {
 
     private String descripcion;
 
-    private LocalDateTime fecha;
+    private String fecha;
 
     @ToString.Exclude
     @ManyToOne
     private Cliente cliente;
 
-    public Pqrs(Integer codigo, String asunto, String descripcion, LocalDateTime fecha) {
+    public Pqrs(Integer codigo, String asunto, String descripcion, String fecha) {
         this.codigo = codigo;
         this.asunto = asunto;
         this.descripcion = descripcion;

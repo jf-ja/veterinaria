@@ -21,7 +21,7 @@ public class Consulta implements Serializable {
 
     private String tipo_consulta;
 
-    private LocalDateTime fecha;
+    private String fecha;
 
     private String descripcion;
 
@@ -37,7 +37,7 @@ public class Consulta implements Serializable {
     @ManyToOne
     private Empleado empleado;
 
-    public Consulta(Integer codigo, String tipo_consulta, LocalDateTime fecha, String descripcion, double precio, MetodoPago metodoPago) {
+    public Consulta(Integer codigo, String tipo_consulta, String fecha, String descripcion, double precio, MetodoPago metodoPago) {
         this.codigo = codigo;
         this.tipo_consulta = tipo_consulta;
         this.fecha = fecha;

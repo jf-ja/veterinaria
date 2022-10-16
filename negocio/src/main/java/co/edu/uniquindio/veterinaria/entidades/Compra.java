@@ -22,9 +22,9 @@ public class Compra implements Serializable {
     @EqualsAndHashCode.Include
     private Integer codigo;
 
-    private LocalDateTime fecha;
+    private String fecha;
 
-    private Double total;
+    private float total;
 
     @ToString.Exclude
     @ManyToMany
@@ -38,7 +38,7 @@ public class Compra implements Serializable {
     @ManyToOne
     private Empleado empleado;
 
-    public Compra(Integer codigo, LocalDateTime fecha, Double total) {
+    public Compra(Integer codigo, String fecha, float total) {
         this.codigo = codigo;
         this.fecha = fecha;
         this.total = total;
