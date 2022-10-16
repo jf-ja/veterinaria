@@ -31,7 +31,7 @@ insert into empelado values (21345,"carol","carol.@gmail.com","134311")
 insert into consulta values (2132245,"bañar ","03/10/2022","se alvo el pelo de arturo  con sahmpuu ego",223.000," debito")
 insert into consulta values (112233134,"vacunar","03/12/2022","se vacuno el perro arturo  contra la epattits",423.000," debito")
 insert into consulta values (64774,"desparacitar","03/13/2022","se desparacito con ruda",13.000," debito")
-insert into consulta values (88943,"paseo ","03/14/2022","se llevo el perro a cartegena",222.000," debito")
+insert into consulta values (88943,"paseo","03/14/2022","se llevo el perro a cartegena",222.000," debito")
 
 
 insert into mascota values (4343,"rambo ","15anios",40kg","bulldog)
