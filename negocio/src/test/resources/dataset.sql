@@ -1,3 +1,4 @@
+/* */
 insert into administrador values (21345,"camilo","camilo.@gmail.com","2123")
 insert into administrador values (122344,"dayana","dayana.@gmail.com","233")
 insert into administrador values (233,"martinezz","martinez.@gmail.com","2134")
@@ -44,12 +45,6 @@ insert into persona values (112344,"camila","camila@gmail.com","1233")
 insert into persona values (142344,"dayana","dayana@gmail.com","22333")
 insert into persona values (122344,"lorena","lorena@gmail.com","23444444")
 insert into persona values (123344,"felipe","felipe@gmail.com","212344122")
-
-
-
-
-
-
 
 
 
