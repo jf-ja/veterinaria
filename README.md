@@ -1,6 +1,6 @@
 ## Veterinaria
 
-Este es una apliacion para una veterinaria para comprar productos y solicitar consultas
+Es una aplicacion la cual brinda una gran variedad de productos y servicios para el cuidado de nuestras mascotas.
 
 
     

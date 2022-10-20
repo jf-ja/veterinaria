@@ -5,7 +5,7 @@ insert into administrador values (233,"martinezz","martinez.@gmail.com","2134")
 insert into administrador values (2132145,"luisa","luisa.@gmail.com","2123")
 insert into administrador values (2137745,"steban","steban.@gmail.com","2123")
 
-insert into cliente values (1007303046,"miguel","luism.lopez@gmail.com","6365351")
+insert into cliente values (1007303056,"miguel","luism.lopez@gmail.com","6365351")
 insert into cliente values (1010730304,"123pepito","andres@gmail.com","63655")
 insert into cliente values (1007303048,"veronica","veronica.@gmail.com","6661")
 insert into cliente values (107303649,"johana","johana.@gmail.com","1663531")
@@ -37,7 +37,7 @@ insert into consulta values (88943,"paseo","03/14/2022","se llevo el perro a car
 
 insert into mascota values (4343,"rambo ","15anios",40kg","bulldog)
 insert into mascota values (12333,"luis","12anios","32kg"," labrador")
-insert into mascota values (812654,"luna","5anios","25kg","gran danes")
+insert into mascota values (812654,"luna","6anios","25kg","gran danes")
 insert into mascota values (763454,"akira","3anios","25kg","pitbull")
 insert into mascota values (662354,"goleat","8anios","25kg","pastor aleman")
 
