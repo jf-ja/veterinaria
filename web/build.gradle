@@ -1,0 +1,20 @@
+plugins {
+    id 'org.joinfaces' version '4.6.6'
+}
+dependencies {
+    implementation 'de.vinado.boot:spring-boot-dkim-javamail:1.2.2'
+    implementation 'de.vinado.boot:mail-extensions-dkim-javamail-spring-boot-starter:2.0.0'
+    implementation 'de.vinado.boot:mail-extensions-concurrent-javamail-spring-boot-starter:2.0.0'
+    implementation 'de.vinado.boot:spring-boot-starter-dkim-javamail:1.2.2'
+    implementation 'de.vinado.boot:spring-boot-autoconfigure-dkim-javamail:1.2.2'
+    implementation 'de.vinado.spring:dkim-javamail:1.2.2'
+    implementation project(":negocio")
+    implementation 'org.joinfaces:jsf-spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.primefaces:primefaces:11.0.0'
+    implementation 'org.springframework.boot:spring-boot-starter-mail'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'com.icegreen:greenmail-junit5:1.6.9'
+    implementation 'org.springframework.boot:spring-boot-starter-mail'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}

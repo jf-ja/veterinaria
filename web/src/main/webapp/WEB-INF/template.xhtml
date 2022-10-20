@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+>
+<h:head>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+    <title>Vete-Shop</title>
+    <link rel="stylesheet" href="css/normalize.css"></link>
+    <link rel="stylesheet" href="css/style.css"></link>
+    <script src="https://kit.fontawesome.com/6ea5620af5.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous"></link>
+</h:head>
+<h:body>
+    <div id="header">
+
+        <div class="px-3 py-2 bg-dark text-white">
+            <div class="contenedor">
+                <div class="barra">
+                    <a href="/">
+                        <img src="img/tituloVeterinaria.png" alt="Titulo de veterinaria"></img>
+                    </a>
+                    <nav class="menu">
+                        <ul>
+                            <li jsf:rendered="#{!seguridadBean.autenticadoAdmin}">
+                                <a href="/usuario/productos.xhtml" class="lin">Productos</a>
+                            </li>
+                            <li jsf:rendered="#{!seguridadBean.autenticadoAdmin}">
+                                <a href="index.html" class="lin">Afiliaciones</a>
+                            </li>
+                            <li jsf:rendered="#{seguridadBean.autenticado}">
+                                <a href="/usuario/carrito.xhtml" class="lin">Carrito</a>
+                            </li>
+                            <li jsf:rendered="#{seguridadBean.autenticadoAdmin}">
+                                <a href="/" class="lin">Mis productos</a>
+                            </li>
+                            <li jsf:rendered="#{seguridadBean.autenticadoAdmin}">
+                                <a href="/admin/crearProducto.xhtml" class="lin">Crear producto</a>
+                            </li>
+                        </ul>
+                    </nav> <!--Cierra el bloque de menu-->
+                </div><!--Cierra el bloque de barra-->
+            </div> <!--Cierra el boque de contenedor-->
+        </div>
+        <div class="px-3 py-2 border-bottom mb-3">
+            <div class="container d-flex flex-wrap justify-content-center">
+                <div class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto">
+                    <h:form>
+                        <p:inputText style=" width: 300px" placeholder="buscar producto" required="true"
+                                     value=""/>
+                        <p:commandButton icon="pi pi-search"  update="@form"/>
+                    </h:form>
+                </div>
+                <div class="text-end">
+                    <h:form rendered="#{!seguridadBean.autenticado and !seguridadBean.autenticadoAdmin}">
+                        <p:commandButton value="login" styleClass="btn btn-primary me-2" onclick="PF('login').show()"  icon="pi pi-sign-in"/>
+                        <p:commandButton value="Registrarse" styleClass="btn btn-primary"
+                                         action="registrarUsuario?faces-redirect=true" icon="pi pi-user-plus"/>
+
+                    </h:form>
+                    <div jsf:rendered="#{seguridadBean.autenticadoAdmin}">
+                        <h:form>
+                            <p:commandButton value="Cerrar sesion" styleClass="btn btn-primary" action="#{seguridadBean.cerrarSesion}"/>
+
+                        </h:form>
+                    </div>
+                    <div jsf:rendered="#{seguridadBean.autenticado}" id="info-sesion">
+                        <span>Hola, #{seguridadBean.usuarioSesion.nombre}</span>
+                        <h:form>
+                            <p:commandButton value="Cerrar sesion" styleClass="btn btn-primary" action="#{seguridadBean.cerrarSesion}"/>
+
+                        </h:form>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div> <!--Cierra el el encabezado del sitio (site-header)-->
+    <p:dialog header="Iniciar sesión" showEffect="fade" widgetVar="login" modal="true"
+              rendered="#{!seguridadBean.autenticado}" >
+        <h:form >
+            <h:panelGrid columns="3" cellpadding="5">
+                <p:outputLabel for="email_login" value="Email:" />
+                <p:inputText id="email_login" value="#{seguridadBean.email}" required="true" />
+                <p:message for="email_login" />
+                <p:outputLabel for="password_login" value="Password:" />
+                <p:password id="password_login" value="#{seguridadBean.password}" required="true"
+                />
+                <p:message for="password_login" />
+            </h:panelGrid>
+            <div align="center">
+                <p:commandButton value="Iniciar Sesión Usuario" action="#{seguridadBean.iniciarSesion}"
+                                 styleClass="mt-4" update="@form" icon="pi pi-sign-in" iconPos="left" />
+                <p:growl for="login-bean" showDetail="true" />
+
+            </div>
+            <div align="center">
+                <p:commandButton value="Iniciar Sesión Administrador" action="#{seguridadBean.iniciarSesionAdmin}"
+                                 styleClass="m-4" update="@form" icon="pi pi-sign-in" iconPos="left" />
+                <p:growl for="login-admin" showDetail="true" />
+            </div>
+
+        </h:form>
+    </p:dialog>
+
+
+
+    <div id="content">
+        <div class="container">
+             <ui:insert name="content">Contenido del documento</ui:insert>
+        </div>
+    </div>
+
+
+    <!--Pie de pagina de la pagina-->
+    <footer>
+        <div class="footer-content">
+            <h3>VETA-SHOP</h3>
+            <p>
+                "Ellos estan felices por son saludables Y son saludables por que visitan a Vete-Shop"
+            </p>
+        </div>
+        <div class="contenedor-pie">
+            <div class="columna-uno">
+                <div class="logo-pequeño">
+                    <a href="index.html">
+                        <img src="img/tituloVeterinaria.png" alt="logo veterinaria"></img>
+                    </a>
+                    <ul>
+                        <b>Acerca de Vete-Shop</b>
+                        <li>
+                            <a href="#">¿Quienes somos?</a>
+                        </li>
+                        <li>
+                            <a href="#">Trabaja con nosotros</a>
+                        </li>
+                        <li>
+                            <a href="#">Nuestros aliados</a>
+                        </li>
+                        <li>
+                            <p>
+                                <b>Contactanos</b><br></br>
+                                Vete-Shop LTDA -NIT: 123456789-0 <br></br>
+                                Cll 19 #20-65, Armenia. <br></br>
+                                <b>Ventas +57 313 4567890</b> <br></br>
+                                Atención al Cliente: <br></br>
+                                PBX 5941919 ext. 9700, 9701, 9702, 9703 <br></br>
+                                <b>Formulario de contacto</b> <br></br>
+                                pedidosonline@veterinariashop.com
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="columna-dos">
+                <ul>
+                    <b>La tienda</b>
+                    <li>¿Como comprar?</li>
+                    <li>¿Como usar un codigo de descuento?</li>
+                    <li>¿Como repito un pedido?</li>
+                    <li>
+                        <p>
+                            Métodos y políticas de envíos <br></br>
+                            Métodos de pago aceptados <br></br>
+                            Política de devoluciones y garantía <br></br>
+                            Preguntas frecuentes <br></br>
+                            Radicar PQR’S <br></br>
+                            Términos y condiciones de promociones y eventos <br></br>
+                            Responsabilidad Social <br></br>
+                        </p>
+                    </li>
+                </ul>
+                <div class="iconos">
+                    <a href="" class="link">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+                    <a href="" class="link">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                    <a href="" class="link">
+                        <i class="fa fa-whatsapp"></i>
+                    </a>
+                    <a href="" class="link">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="columna-tres">
+                <ul>
+                    <b>Terminos legales</b>
+                    <li>
+                        <p>
+                            Términos y condiciones <br></br>
+                            Términos y condiciones de Donaciones <br></br>
+                            Manejo de datos personales <br></br>
+                            Políticas de privacidad <br></br>
+                            Derecho de Retracto <br></br>
+                            Política de Seguridad y Salud en el Trabajo <br></br>
+                        </p>
+                    </li>
+                    <li>
+                        <b>Superintendencia de industria y comercio</b> <br></br>
+                        <img src="img/superintendencia.png" alt="superintendencia de industris y comercio"></img>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <div class="footer_bottom">
+        <p> copyright &copy;2022 VETE-SHOP, design by <b> JDFSS</b></p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+</h:body>
+</html>
