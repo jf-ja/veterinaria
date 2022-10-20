@@ -37,6 +37,5 @@ public class CompraTest {
     @Test
     @Sql("classpath:dataset.sql" )
     public void obtener(){
-
     }
 }
